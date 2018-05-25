@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//= require bootstrap-datetimepicker/core
+//= require bootstrap-datetimepicker/pickers
+
+// You may include any languages (optional)
+//= require bootstrap-datetimepicker/locales/bootstrap-datetimepicker.hu
