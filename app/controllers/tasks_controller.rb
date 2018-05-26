@@ -12,10 +12,14 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    if @task.save
-      redirect_to tasks_url, notice: 'Task successfully created.'
+    if @task.deadline <= Time.now
+       render :new, notice: 'Wrong date and time were given.'
     else
-      render :new
+      if @task.save
+        redirect_to tasks_url, notice: 'Task successfully created.'
+      else
+        render :new
+      end
     end
   end
 
@@ -32,5 +36,9 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:title, :description, :deadline)
+  end
+
+  def check_date_time
+
   end
 end
