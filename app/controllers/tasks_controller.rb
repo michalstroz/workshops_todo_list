@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:destroy]
 
   def index
-    @tasks = Task.order(deadline: :asc)
+    @tasks = Task.order(:deadline)
 
   end
 
