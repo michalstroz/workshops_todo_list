@@ -1,9 +1,10 @@
 class Task < ApplicationRecord
   validates :title, presence: true
-  validate :deadline_cannot_be_in_the_past
+  validates :deadline, presence: true
+  # validate :deadline_cannot_be_in_the_past
 
   def deadline_cannot_be_in_the_past
     errors.add(:deadline, "can't be in the past") if
-      deadline.present? && deadline <= Time.now
+      deadline.present? && deadline <= Time.now 
   end
 end
